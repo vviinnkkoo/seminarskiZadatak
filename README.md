@@ -1,1 +1,1 @@
-# seminarskiZadatak
+# Seminarski zadatak - Algebra
