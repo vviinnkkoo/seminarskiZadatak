@@ -19,12 +19,4 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function displayNewGenreInput() {
-        return view('addgenre');
-    }
-
-    public function postNewGenreInput() {
-        //
-    }
-
 }
