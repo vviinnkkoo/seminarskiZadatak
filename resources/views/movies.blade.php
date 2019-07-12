@@ -16,17 +16,21 @@
                     <th scope="col">Žanr</th>
                     <th scope="col">Trajanje (min)</th>
                     <th scope="col">Godina</th>
+                    <th></th>
+                    <th></th>
                     
                 </tr>
             </thead>
             <tbody>
                 @foreach ($movies as $movie)
                 <tr>                
-                    <th scope="row"><img src="{{ asset($movie->coverPhoto) }}" /></th>
+                    <th scope="row"><img src="{{ Storage::url($movie->coverPhoto) }}" style="width:70px; height:auto;" /></th>
                     <td>{{ $movie->name }}</td>
-                    <td>{{ $movie->genre_ID }}</td>
+                    <td>{{ App\Genre::find($movie->genre_id)->name }}</td>
                     <td>{{ $movie->length }}</td>
                     <td>{{ $movie->year }}</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 @endforeach
             </tbody>

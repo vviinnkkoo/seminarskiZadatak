@@ -81,8 +81,10 @@ class VideotekaController extends Controller
         'coverPhoto' => 'required',
         ]);
 
-        $path = $request->file( 'coverPhoto' )->storeAs( 'cover-photos', Input::file('coverPhoto')->getClientOriginalName() );
-        
+        //$path = $request->file( 'coverPhoto' )->storeAs( 'cover-photos', Input::file('coverPhoto')->getClientOriginalName() );
+        $path = Storage::putFileAs(
+            'public/cover-photos', $request->file('coverPhoto'), Input::file('coverPhoto')->getClientOriginalName()
+        );
     
         if ($validator->fails()) {
             return redirect('/add-movie')
