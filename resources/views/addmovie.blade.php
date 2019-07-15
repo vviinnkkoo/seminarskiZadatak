@@ -65,7 +65,7 @@
                 </div>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="coverPhoto" name="coverPhoto">
-                    <label class="custom-file-label" for="coverPhoto">Odaberi naslovnu sliku filma</label>
+                    <label class="custom-file-label" for="coverPhoto">Preporučena dimenzija slike 214x317</label>
                 </div>
             </div>
 

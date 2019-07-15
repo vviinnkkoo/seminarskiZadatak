@@ -54,14 +54,6 @@
                             <a class="dropdown-item" href="/add-genre">Novi žanr</a>
                             <a class="dropdown-item" href="/add-movie">Novi film</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tools
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="http://localhost/phpmyadmin" target="_blank">phpMyAdmin</a>
-                            <a class="dropdown-item" href="http://localhost/tools/composer.exe" target="_blank">Composer setup</a>
-                        </li>
                     </ul>
                     @endguest
 

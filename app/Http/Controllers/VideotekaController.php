@@ -14,6 +14,19 @@ use App\Movie;
 class VideotekaController extends Controller
 {
 
+
+
+
+    
+    // Require login
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+
+
+
+
     // New genre input form
     public function displayNewGenreInput() {
         $genres = Genre::get();
