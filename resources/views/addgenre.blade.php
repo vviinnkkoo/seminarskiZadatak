@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dodaj novi žanr')
+@section('title', 'Videoteka | Dodaj novi žanr')
 
 @section('content')
     <div class="container-fluid">

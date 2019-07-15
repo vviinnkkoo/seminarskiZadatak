@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Početna stranica')
+@section('title', 'Videoteka | Početna stranica')
 
 @section('content')
-    <div class="container">
-        <h1 class="display-3 align-middle text-center">Dobro došli u Videoteku!</h1>
+    <div class="container-fluid">
+    
+        @include('menu.lettermenu')
+    
+
     </div>
+
 @endsection

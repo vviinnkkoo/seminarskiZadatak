@@ -26,18 +26,26 @@ class VideotekaController extends Controller
 
     // New genre input form
     public function displayNewMovieInput() {
-        $genres = Genre::get();
-        return view('addmovie', [ 'genres' => $genres ]);
+        $genres = Genre::get()->sortBy('name');
+        $movies = Movie::get()->sortBy('name');
+        return view('addmovie', [ 'genres' => $genres, 'movies' => $movies ]);
     }
 
 
 
 
 
-    // Display movies
+    // Display movies -> SORT BY NAME
     public function displayMovies() {
-        $movies = Movie::get();
+        $movies = Movie::get()->sortBy('name');
         return view('movies', [ 'movies' => $movies ]);
+    }
+
+    // Display movies -> SELECT BY LETTER
+    public function displayMoviesbyLetter($letter) {
+        $movies = Movie::where('name', 'LIKE', $letter . '%')->get();
+        $ltr = $letter;
+        return view('movies', [ 'movies' => $movies, 'letter' => $ltr ]);
     }
 
 
@@ -81,7 +89,6 @@ class VideotekaController extends Controller
         'coverPhoto' => 'required',
         ]);
 
-        //$path = $request->file( 'coverPhoto' )->storeAs( 'cover-photos', Input::file('coverPhoto')->getClientOriginalName() );
         $path = Storage::putFileAs(
             'public/cover-photos', $request->file('coverPhoto'), Input::file('coverPhoto')->getClientOriginalName()
         );
@@ -100,6 +107,18 @@ class VideotekaController extends Controller
         $movie->coverPhoto = $path;
         $movie->save();
     
-        return redirect('/add-movie');
+        return redirect('/');
+    }
+
+
+
+
+
+    // DELETE movie
+    public function deleteMovie($id) {
+        $movie = Movie::where('id', $id)->first();
+        Storage::delete($movie->coverPhoto);
+        Movie::findOrFail($id)->delete();
+        return redirect('/');
     }
 }
